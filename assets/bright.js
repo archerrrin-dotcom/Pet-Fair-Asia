@@ -39,7 +39,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     panels.insertAdjacentHTML('beforeend','<div class="brand-panel" id="panel'+i+'"><div>'+photo(b[1],b[0]+'场馆','scene')+'<p class="caption">'+b[2]+'</p></div><div class="packs">'+b[3].map((f,n)=>photo(f,b[0]+'包装 '+(n+1),'pack')).join('')+'</div></div>');
   });
   const pending=document.querySelector('#brands .pending');
-  if(pending)pending.innerHTML='<b>本轮已确认 20 个重点品牌。</b><br>待补拍/未在本批照片中可靠确认：皇家、渴望、宽福、爱肯拿、大宠爱、顽皮、喵梵思、米奇旋风、迈路士。';
+  if(pending)pending.remove();
+  const brandIntro=document.querySelector('#brands > .thought');
+  if(brandIntro)brandIntro.remove();
+  const exhibitSection=document.querySelector('.exhibit-wrap')?.previousElementSibling;
+  if(exhibitSection){const exhibitIntro=exhibitSection.querySelector('.thought');if(exhibitIntro)exhibitIntro.remove();}
   const profiles=[
     ['supplement-1','心养日记','SOULFEED DIARY','把日常喂养，<br>做成一面温暖的“日记墙”。','心养日记以大面积明黄和成排陈列建立记忆点，包装上统一的小人物和宠物图形把不同品类串成一套轻松的日常叙事。信息足够清楚，但不把“专业”画得很硬。','IMG_2523.jpeg',['IMG_2524.jpeg','IMG_2525.jpeg','IMG_2526.jpeg','IMG_2527.jpeg']],
     ['supplement-3','朗诺','RANOVA','用插画猫，<br>把货架做成一组肖像。','朗诺把每款产品的猫咪形象做成包装正面的视觉主角，金色字标、彩色画框与品类配色共同形成系列感。面对高密度陈列时，角色插画替代了复杂的功能符号，让消费者能先凭形象辨认，再走近读取配方和品类。','IMG_2327.jpeg',['IMG_2326.jpeg','IMG_2328.jpeg','IMG_2329.jpeg','IMG_2327.jpeg']],
