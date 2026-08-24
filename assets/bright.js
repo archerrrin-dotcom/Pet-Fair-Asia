@@ -44,6 +44,16 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(brandIntro)brandIntro.remove();
   const exhibitSection=document.querySelector('.exhibit-wrap')?.previousElementSibling;
   if(exhibitSection){const exhibitIntro=exhibitSection.querySelector('.thought');if(exhibitIntro)exhibitIntro.remove();}
+  const analysisBrands=new Set(['莱野','布兰德','心养日记','朗诺','有鱼','金故','伯纳天纯']);
+  if(nav)nav.querySelectorAll('.brand-button').forEach((button)=>{
+    if(!analysisBrands.has(button.textContent.trim()))return;
+    const panel=document.querySelector('#panel'+button.dataset.id);
+    if(panel)panel.remove();
+    button.remove();
+  });
+  const exhibit=document.querySelector('#exhibit');
+  const moments=['IMG_2073.jpeg','IMG_2075.jpeg','IMG_2157.jpeg','IMG_2207.jpeg','IMG_2645.jpeg','IMG_2657.jpeg','IMG_2674.jpeg','IMG_2663.jpeg','IMG_2220.jpeg'];
+  if(exhibit)exhibit.innerHTML=moments.map((file,n)=>'<figure class="exhibit-card"><img src="'+a+file+'" alt="随手逛展瞬间 '+(n+1)+'"></figure>').join('');
   const profiles=[
     ['supplement-1','心养日记','SOULFEED DIARY','把日常喂养，<br>做成一面温暖的“日记墙”。','心养日记以大面积明黄和成排陈列建立记忆点，包装上统一的小人物和宠物图形把不同品类串成一套轻松的日常叙事。信息足够清楚，但不把“专业”画得很硬。','IMG_2523.jpeg',['IMG_2524.jpeg','IMG_2525.jpeg','IMG_2526.jpeg','IMG_2527.jpeg']],
     ['supplement-3','朗诺','RANOVA','用插画猫，<br>把货架做成一组肖像。','朗诺把每款产品的猫咪形象做成包装正面的视觉主角，金色字标、彩色画框与品类配色共同形成系列感。面对高密度陈列时，角色插画替代了复杂的功能符号，让消费者能先凭形象辨认，再走近读取配方和品类。','IMG_2327.jpeg',['IMG_2326.jpeg','IMG_2328.jpeg','IMG_2329.jpeg','IMG_2327.jpeg']],
